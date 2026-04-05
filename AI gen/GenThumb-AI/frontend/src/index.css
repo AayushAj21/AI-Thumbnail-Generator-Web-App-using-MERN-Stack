@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-400: #f472b6;
+  --color-brand-500: #ec4899; /* Pink primary */
+  --color-brand-600: #db2777;
+  --color-brand-900: #831843;
+  --color-dark-900: #050505;
+  --color-dark-800: #0a0a0a;
+  --color-dark-700: #121212;
+  --color-dark-border: #1f1f1f;
+}
+
+body {
+  @apply bg-dark-900 text-white min-h-screen font-sans antialiased;
+  margin: 0;
+}
+
+/* Custom glow utilities */
+.glow-pink {
+  box-shadow: 0 0 40px -10px theme('colors.brand.500');
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, theme('colors.brand.400'), theme('colors.brand.600'));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes slide-in-right {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+
+.animate-shake {
+  animation: shake 0.2s ease-in-out 0s 2;
+}
+
+.glass-card {
+  @apply bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl;
+}
